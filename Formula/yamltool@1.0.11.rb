@@ -1,8 +1,8 @@
 class Yamltool < Formula
   desc "Command-line utility for reading, querying, and manipulating YAML files"
   homepage "https://gitlab.seznam.net/vojtech.stursa/tool_yamltool"
-  url "https://gitlab.seznam.net/vojtech.stursa/tool_yamltool/-/archive/v1.0.1/tool_yamltool-v1.0.1.tar.gz"
-  sha256 "1f30fe11d53a3dd4ff565612419f3c5c6220264833d6a93742eda367d7e040ad" # Will be filled after creating the release
+  url "https://sbrowser.dev.dnsz.cz/vojtech.stursa/artefacts/yamltool/yamltool-1.0.11.tar.gz"
+  sha256 "b9e2f5c84d45b40b415b77743bb56467b8755ce24b059f123fc874bee9d66ecc" # Will be filled after creating the release
   license "MIT"
   head "https://gitlab.seznam.net/vojtech.stursa/tool_yamltool.git", branch: "main"
 
@@ -28,6 +28,6 @@ class Yamltool < Formula
     assert_match "Test", output
 
     # Test version
-    assert_match "1.0.1", shell_output("#{bin}/yamltool --version")
+    assert_match "1.0.11", shell_output("#{bin}/yamltool --version")
   end
 end
