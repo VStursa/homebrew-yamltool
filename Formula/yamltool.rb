@@ -1,16 +1,21 @@
 class Yamltool < Formula
   desc "Command-line utility for reading, querying, and manipulating YAML files"
   homepage "https://gitlab.seznam.net/vojtech.stursa/tool_yamltool"
-  url "https://sbrowser.dev.dnsz.cz/vojtech.stursa/artefacts/yamltool/yamltool-v1.0.15.tar.gz"
-  sha256 "d51b4d2b80f41bf3784c7fbcd3f31031cdaacfb46b88913bf008d1a402d25fbc" # Will be filled after creating the release
   license "MIT"
   head "https://gitlab.seznam.net/vojtech.stursa/tool_yamltool.git", branch: "main"
 
-  depends_on xcode: ["14.0", :build]
+  on_macos do
+    if Hardware::CPU.arm?
+      url "https://sbrowser.dev.dnsz.cz/vojtech.stursa/artefacts/yamltool/yamltool-v1.0.16-arm64-apple-darwin.tar.gz"
+      sha256 "23210a33deacecdb6d75a38ee99da423fc1dc68efb078c3ebb83548897722950"
+    else
+      url "https://sbrowser.dev.dnsz.cz/vojtech.stursa/artefacts/yamltool/yamltool-v1.0.16-x86_64-apple-darwin.tar.gz"
+      sha256 "1bdbd396c3b85cb40b67fdcc8f4791b601ba9aab8399c54f592899c8fa6e5d0c"
+    end
+  end
 
   def install
-    system "swift", "build", "--disable-sandbox", "-c", "release"
-    bin.install ".build/release/YAMLTool" => "yamltool"
+    bin.install "yamltool"
   end
 
   test do
@@ -28,6 +33,6 @@ class Yamltool < Formula
     assert_match "Test", output
 
     # Test version
-    assert_match "v1.0.15", shell_output("#{bin}/yamltool --version")
+    assert_match "v1.0.16", shell_output("#{bin}/yamltool --version")
   end
 end
