@@ -6,11 +6,11 @@ class Yamltool < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://sbrowser.dev.dnsz.cz/vojtech.stursa/artefacts/yamltool/yamltool-v1.0.23-arm64-apple-darwin.tar.gz"
-      sha256 "2369cb66da1dceef9ac08dfa3bb45f82dcd46803c578d5de5637e3516e596b7d"
+      url "https://sbrowser.dev.dnsz.cz/vojtech.stursa/artefacts/yamltool/yamltool-v1.0.24-arm64-apple-darwin.tar.gz"
+      sha256 "5d26da5461e4ab2cc59d88e396c3bad229aa7127f63fac82d4dac3eece75eb72"
     else
-      url "https://sbrowser.dev.dnsz.cz/vojtech.stursa/artefacts/yamltool/yamltool-v1.0.23-x86_64-apple-darwin.tar.gz"
-      sha256 "9a4ec7e3c48a8e794be7c5fbe26fb89b8a9c2614df98f65a0e269d6403adc4f8"
+      url "https://sbrowser.dev.dnsz.cz/vojtech.stursa/artefacts/yamltool/yamltool-v1.0.24-x86_64-apple-darwin.tar.gz"
+      sha256 "0f693f03e4bfe6737a6ed0ec19f66a8ee63ad923e7aee88ce57b0400e680ce68"
     end
   end
 
@@ -33,6 +33,6 @@ class Yamltool < Formula
     assert_match "Test", output
 
     # Test version
-    assert_match "v1.0.23", shell_output("#{bin}/yamltool --version")
+    assert_match "v1.0.24", shell_output("#{bin}/yamltool --version")
   end
 end
